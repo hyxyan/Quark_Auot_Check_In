@@ -4,6 +4,7 @@ on:
     - cron: "0 0 * * *"
 permissions:
   actions: write
+  contents: read
 jobs:
   cronjob-based-github-action:
     name: Keepalive Workflow
