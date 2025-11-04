@@ -5,7 +5,6 @@ on:
   workflow_dispatch:
 permissions:
   actions: write
-  contents: read
 jobs:
   cronjob-based-github-action:
     name: Keepalive Workflow
@@ -14,5 +13,5 @@ jobs:
       - uses: actions/checkout@v4
       - uses: gautamkrishnar/keepalive-workflow@v2
         with:
-          workflow_files: "quark_signin.yml"
+          workflow_files: ".github/workflows/quark_signin.yml"
           time_elapsed: "0"
