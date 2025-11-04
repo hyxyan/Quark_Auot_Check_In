@@ -14,14 +14,11 @@ jobs:
 
       - name: Update README timestamp
         run: |
-          # 设置 Git 身份
+      - name: Update activity log
+        run: |
           git config --global user.name "hyxyan"
           git config --global user.email "153878395@qq.com"
-          
-          # 更新 README.md 中的时间戳
-          sed -i "s/Last active:.*/Last active: $(date)/" README.md
-          
-          # 提交更改
-          git add README.md
-          git commit -m "docs: update last active time" || exit 0
+          echo "Last active: $(date)" >> .github/keepalive.log
+          git add .github/keepalive.log
+          git commit -m "chore: update keepalive log" || exit 0
           git push
